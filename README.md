@@ -1,0 +1,2 @@
+# dailynews
+angular news app
