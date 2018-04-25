@@ -1,0 +1,80 @@
+<div class="w-100 pb-5 ">
+	<div class="row p-3">
+		<div class="col-sm-10">
+			<div class="col-sm-12 menu-content">
+              	<div class="custom-menu">
+                	<!-- <ul>
+	                    <li [ngClass]="['nav-link', (active == '') ? 'current' : '']" (click)="changeCategory('')">Latest</li>
+	                    <li [ngClass]="['nav-link', (active == 'business') ? 'current' : '']" (click)="changeCategory('business')" >Business</li>
+	                    <li [ngClass]="['nav-link', (active == 'sports') ? 'current' : '']" (click)="changeCategory('sports')">Sports</li>
+	                    <li [ngClass]="['nav-link', (active == 'entertainment') ? 'current' : '']" (click)="changeCategory('entertainment')">Entertainment</li>
+	                    <li [ngClass]="['nav-link', (active == 'politics') ? 'current' : '']" (click)="changeCategory('politics')">Politics</li>
+                  	</ul> -->
+                  	<nav class="navbar navbar-expand-lg navbar-light">
+					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					    <span class="navbar-toggler-icon"></span>
+					  </button>
+					  <div class="collapse navbar-collapse" id="navbarNav">
+					    <ul class="navbar-nav">
+					      <li [ngClass]="['nav-link', (active == '') ? 'current' : '']" (click)="changeCategory('')">
+					        <a class="nav-link">Latest</a>
+					      </li>
+					      <li [ngClass]="['nav-link', (active == 'business') ? 'current' : '']" (click)="changeCategory('business')">
+					        <a class="nav-link">Business</a>
+					      </li>
+					      <li [ngClass]="['nav-link', (active == 'sports') ? 'current' : '']" (click)="changeCategory('sports')">
+					        <a class="nav-link" href="#">Sports</a>
+					      </li>
+					      <li [ngClass]="['nav-link', (active == 'entertainment') ? 'current' : '']" (click)="changeCategory('entertainment')">
+					        <a class="nav-link " href="#">Entertainment</a>
+					      </li>
+					      <li [ngClass]="['nav-link', (active == 'politics') ? 'current' : '']" (click)="changeCategory('politics')">
+					        <a class="nav-link " href="#">Politics</a>
+					      </li>
+					    </ul>
+					  </div>
+					</nav>
+              	</div>
+            </div>
+
+		</div>
+		<div class="col-sm-2">
+			<div class="col-sm-12">
+				<select (change) = "changeCountry($event)" class="form-control" id="country">
+					<option value="IN">India</option>
+					<option value="us">USA</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="d-flex flex-wrap p-5" >
+	<div class="w-100 text-center mb-3">
+		<!-- <h2>{{(category === '') ? 'LATEST' : category.toUpperCase()}}</h2> -->
+	</div>
+	<div class="row news-papper">
+		<div class="card-columns">
+			<div *ngFor="let data of  latestnews" [ngClass]="[]">
+				<a (click)="selectNews(data)">
+					<div class="card">
+						<img [src]="data.urlToImage"  class="card-img-top">
+						<div class="card-body">
+							<h5 class="card-title">{{data.title}}</h5>
+							<p class="card-text text-secondary"><i>{{data.description}}</i></p>
+						</div>
+						<div class="card-footer">
+					      <small class="text-muted">{{data.publishedAt}}</small>
+					      <div class="float-right">
+					      	<div class="d-flex flex-row-reverse text-secondary">
+							  <div class="mr-2"><a href="#" ><i class="fab fa-twitter"></i></a></div>
+							  <div class="mr-4"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
+							</div>
+					      	
+					      </div>
+					    </div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
